@@ -19,13 +19,10 @@ public class Order {
 	private long id;
 	private LocalDate date;
 	private Customer customer;
-	private Order order;
-	/**
-	 * 
-	 */
+	
+
 	public Order() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * @param id
@@ -33,21 +30,19 @@ public class Order {
 	 * @param customer
 	 * @param order
 	 */
-	public Order(long id, LocalDate date, Customer customer, Order order) {
+	public Order(long id, LocalDate date, Customer customer) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.customer = customer;
-		this.order = order;
 	}
 	/**
 	 * @param customer
 	 * @param order
 	 */
-	public Order(Customer customer, Order order) {
+	public Order(Customer customer) {
 		super();
 		this.customer = customer;
-		this.order = order;
 	}
 	/**
 	 * @return the id
@@ -85,21 +80,10 @@ public class Order {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	/**
-	 * @return the order
-	 */
-	public Order getOrder() {
-		return order;
-	}
-	/**
-	 * @param order the order to set
-	 */
-	public void setOrder(Order order) {
-		this.order = order;
-	}
+
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", date=" + date + ", customer=" + customer + ", order=" + order + "]";
+		return "Order [id=" + id + ", date=" + date + ", customer=" + customer + "]";
 	}
 	
 	
