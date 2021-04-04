@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Profile</title>
+</head>
+<body>
+	<form>
+		<table>
+		<tr th:each="currentUser: ${users}">
+			<td th:text="${currentUser.id}" />
+			<td th:text="${currentUser.name}" />
+			<td th:text="${currentUser.description}" />
+			<td th:text="${currentUser.address}" />
+
+			<td><a th:href="@{/edit/{id}(id=${currentUser.id})}">Edit</a></td>
+			<td><a th:href="@{/delete/{id}(id=${currentUser.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<a href="../addVendor">Add a new vendor</a>
+</body>
+</html>
