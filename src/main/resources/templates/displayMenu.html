@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Menu</title>
+</head>
+<body>
+	<form>
+		<table>
+		<tr th:each="currentMenu: ${menus}">
+			<td th:text="${currentMenu.id}" />
+			<td th:text="${currentMenu.itemDescription}" />
+			<td th:text="${currentMenu.price}" />
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
