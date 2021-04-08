@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * Abutalib Hasan - amhasan
  * 202101 CIS171 12928
@@ -15,9 +17,11 @@ public class Menu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String item;
-	private String ingredients;
-	private double price;
+	private String description;
+	
+	@Autowired
+	private Item item;
+	
 	/**
 	 * 
 	 */
@@ -25,84 +29,75 @@ public class Menu {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	/**
 	 * @param id
+	 * @param description
 	 * @param item
-	 * @param ingredients
-	 * @param price
 	 */
-	public Menu(long id, String item, String ingredients, double price) {
+	public Menu(long id, String description, Item item) {
 		super();
 		this.id = id;
+		this.description = description;
 		this.item = item;
-		this.ingredients = ingredients;
-		this.price = price;
 	}
+
 	/**
+	 * @param description
 	 * @param item
-	 * @param ingredients
-	 * @param price
 	 */
-	public Menu(String item, String ingredients, double price) {
+	public Menu(String description, Item item) {
 		super();
+		this.description = description;
 		this.item = item;
-		this.ingredients = ingredients;
-		this.price = price;
 	}
+
 	/**
 	 * @return the id
 	 */
 	public long getId() {
 		return id;
 	}
+
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	/**
 	 * @return the item
 	 */
-	public String getItem() {
+	public Item getItem() {
 		return item;
 	}
+
 	/**
 	 * @param item the item to set
 	 */
-	public void setItem(String item) {
+	public void setItem(Item item) {
 		this.item = item;
 	}
-	/**
-	 * @return the ingredients
-	 */
-	public String getIngredients() {
-		return ingredients;
-	}
-	/**
-	 * @param ingredients the ingredients to set
-	 */
-	public void setIngredients(String ingredients) {
-		this.ingredients = ingredients;
-	}
-	/**
-	 * @return the price
-	 */
-	public double getPrice() {
-		return price;
-	}
-	/**
-	 * @param price the price to set
-	 */
-	public void setPrice(double price) {
-		this.price = price;
-	}
+
 	@Override
 	public String toString() {
-		return "Menu [id=" + id + ", item=" + item + ", ingredients=" + ingredients + ", price=" + price + "]";
+		return "Menu [id=" + id + ", description=" + description + ", item=" + item + "]";
 	}
 	
 	
-	
-
 }
