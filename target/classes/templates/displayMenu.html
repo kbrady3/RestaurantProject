@@ -9,7 +9,8 @@
 		<table>
 		<tr th:each="currentMenu: ${menus}">
 			<td th:text="${currentMenu.id}" />
-			<td th:text="${currentMenu.itemDescription}" />
+			<td th:text="${currentMenu.item}" />
+			<td th:text="${currentMenu.ingredients}" />
 			<td th:text="${currentMenu.price}" />
 			</tr>
 		</table>
