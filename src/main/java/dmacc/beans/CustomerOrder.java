@@ -13,7 +13,7 @@ import javax.persistence.Id;
  * Apr 2, 2021
  */
 @Entity
-public class Order {
+public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -21,7 +21,7 @@ public class Order {
 	private Customer customer;
 	
 
-	public Order() {
+	public CustomerOrder() {
 		super();
 	}
 	/**
@@ -30,7 +30,7 @@ public class Order {
 	 * @param customer
 	 * @param order
 	 */
-	public Order(long id, LocalDate date, Customer customer) {
+	public CustomerOrder(long id, LocalDate date, Customer customer) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -40,7 +40,7 @@ public class Order {
 	 * @param customer
 	 * @param order
 	 */
-	public Order(Customer customer) {
+	public CustomerOrder(Customer customer) {
 		super();
 		this.customer = customer;
 	}
