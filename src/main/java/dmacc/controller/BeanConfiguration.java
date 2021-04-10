@@ -3,8 +3,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import dmacc.beans.Customer;
+import dmacc.beans.CustomerOrder;
+import dmacc.beans.MenuItem;
 import dmacc.beans.Menu;
-import dmacc.beans.Order;
+import dmacc.beans.MenuItem;
+import dmacc.beans.CustomerOrder;
 
 /**
  * @author Jeremy Brannen - jrbrannen CIS175 Apr 5, 2021
@@ -19,14 +22,20 @@ public class BeanConfiguration {
 	}
 
 	@Bean
-	public Order order() {
-		Order bean = new Order();
+	public CustomerOrder customerOrder() {
+		CustomerOrder bean = new CustomerOrder();
 		return bean;
 	}
 
 	@Bean
 	public Menu menu() {
 		Menu bean = new Menu();
+		return bean;
+	}
+	
+	@Bean
+	public MenuItem menuItem() {
+		MenuItem bean = new MenuItem();
 		return bean;
 	}
 }

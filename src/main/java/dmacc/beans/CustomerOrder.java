@@ -1,13 +1,17 @@
 package dmacc.beans;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 /**
  * Abutalib Hasan - amhasan
@@ -15,14 +19,13 @@ import lombok.NoArgsConstructor;
  * Apr 2, 2021
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
+@NoArgsConstructor
+public class CustomerOrder {
 	private long id;
-	private String firstName;
-	private String lastName;
-	private String phone;
-	private String email;
-	private String address;
+	private LocalDate date;
+	@Autowired
+	private Customer customer;
+	private MenuItem menuItem;
 	
 }
