@@ -2,26 +2,31 @@ package dmacc.beans;
 
 import java.time.LocalDate;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Abutalib Hasan - amhasan
  * 202101 CIS171 12928
  * Apr 2, 2021
  */
-@Entity
-public class Order {
+@Embeddable
+//@Entity
+public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private LocalDate date;
+	@Autowired
 	private Customer customer;
 	
 
-	public Order() {
+	public CustomerOrder() {
 		super();
 	}
 	/**
@@ -30,7 +35,7 @@ public class Order {
 	 * @param customer
 	 * @param order
 	 */
-	public Order(long id, LocalDate date, Customer customer) {
+	public CustomerOrder(long id, LocalDate date, Customer customer) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -40,7 +45,7 @@ public class Order {
 	 * @param customer
 	 * @param order
 	 */
-	public Order(Customer customer) {
+	public CustomerOrder(Customer customer) {
 		super();
 		this.customer = customer;
 	}

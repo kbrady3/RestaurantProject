@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 
 import dmacc.beans.Customer;
 import dmacc.beans.Menu;
-import dmacc.beans.Order;
+import dmacc.beans.CustomerOrder;
 
 /**
  * @author Jeremy Brannen - jrbrannen CIS175 Apr 5, 2021
@@ -19,8 +19,8 @@ public class BeanConfiguration {
 	}
 
 	@Bean
-	public Order order() {
-		Order bean = new Order();
+	public CustomerOrder order() {
+		CustomerOrder bean = new CustomerOrder();
 		return bean;
 	}
 
