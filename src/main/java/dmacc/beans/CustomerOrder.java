@@ -1,6 +1,7 @@
 package dmacc.beans;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
@@ -8,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,5 +35,6 @@ public class CustomerOrder {
 	private LocalDate date;
 	@ManyToOne
 	private Customer customer;
-
+	@ManyToOne
+	private Menu menu;
 }
