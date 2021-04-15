@@ -3,10 +3,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import dmacc.beans.Customer;
-import dmacc.beans.CustomerOrder;
-import dmacc.beans.MenuItem;
 import dmacc.beans.Menu;
-import dmacc.beans.MenuItem;
 import dmacc.beans.CustomerOrder;
 
 /**
@@ -22,7 +19,7 @@ public class BeanConfiguration {
 	}
 
 	@Bean
-	public CustomerOrder customerOrder() {
+	public CustomerOrder order() {
 		CustomerOrder bean = new CustomerOrder();
 		return bean;
 	}
@@ -30,12 +27,6 @@ public class BeanConfiguration {
 	@Bean
 	public Menu menu() {
 		Menu bean = new Menu();
-		return bean;
-	}
-	
-	@Bean
-	public MenuItem menuItem() {
-		MenuItem bean = new MenuItem();
 		return bean;
 	}
 }

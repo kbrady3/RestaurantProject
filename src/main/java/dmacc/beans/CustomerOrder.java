@@ -1,11 +1,17 @@
 package dmacc.beans;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,13 +25,16 @@ import lombok.NoArgsConstructor;
  * Apr 2, 2021
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class CustomerOrder {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private LocalDate date;
-	@Autowired
+	@ManyToOne
 	private Customer customer;
-	private MenuItem menuItem;
-	
+	@ManyToOne
+	private Menu menu;
 }
