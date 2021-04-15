@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,12 +15,13 @@ import lombok.NoArgsConstructor;
  * Apr 2, 2021
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Menu {
+@AllArgsConstructor
+@Entity
+public class MenuItems {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String description;
-	@Autowired
-	private MenuItem menuItem;
-	
+	private String itemName;
+	private double price;
 }

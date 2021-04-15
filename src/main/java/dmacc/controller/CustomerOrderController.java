@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import dmacc.beans.CustomerOrder;
-import dmacc.beans.CustomerOrder;
-import dmacc.repository.CustomerOrderRepository;
 import dmacc.repository.CustomerOrderRepository;
 
 /**
@@ -38,7 +35,7 @@ public class CustomerOrderController {
 	// adds a new order to database
 	@GetMapping("/addNewOrder")
 		public String addNewOrder(Model model) {
-		CustomerOrder o = new CustomerOrder();
+			CustomerOrder o = new CustomerOrder();
 			model.addAttribute("newOrder", o);
 			return "input";
 	}
