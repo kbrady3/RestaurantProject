@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import dmacc.beans.CustomerOrder;
-import dmacc.repository.OrderRepository;
+import dmacc.repository.CustomerOrderRepository;
 
 /**
  * @author Jeremy Brannen - jrbrannen
@@ -17,10 +17,10 @@ import dmacc.repository.OrderRepository;
  * Apr 5, 2021
  */
 @Controller
-public class OrderController {
+public class CustomerOrderController {
 	
 	@Autowired
-	OrderRepository repo;
+	CustomerOrderRepository repo;
 	
 	// display an order
 	@GetMapping({"displayOrder"})

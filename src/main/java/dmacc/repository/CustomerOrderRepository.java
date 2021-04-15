@@ -9,6 +9,6 @@ import dmacc.beans.CustomerOrder;
  * @author Jeremy Brannen - jrbrannen CIS175 Apr 5, 2021
  */
 @Repository
-public interface OrderRepository extends JpaRepository<CustomerOrder, Long> {
+public interface CustomerOrderRepository extends JpaRepository<CustomerOrder, Long> {
 
 }
