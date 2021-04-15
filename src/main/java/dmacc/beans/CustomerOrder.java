@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.AllArgsConstructor;
@@ -35,6 +35,8 @@ public class CustomerOrder {
 	private LocalDate date;
 	@ManyToOne
 	private Customer customer;
+	@OneToMany
+	private List<MenuItems> menuItem;
 	@ManyToOne
-	private Menu menu;
+	private PaymentInfo payment;
 }
