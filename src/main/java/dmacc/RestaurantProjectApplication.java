@@ -18,7 +18,7 @@ public class RestaurantProjectApplication {
 
 	ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
 			  
-			  Customer c = appContext.getBean("cust", Customer.class);
+			  Customer c = appContext.getBean("customer", Customer.class);
 			  System.out.println(c.toString());
 			  
 }
