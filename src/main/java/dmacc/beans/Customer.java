@@ -28,6 +28,6 @@ public class Customer {
 	private String phone;
 	private String email;
 	private String address;
-	
+	private String creditCard;
 	
 }

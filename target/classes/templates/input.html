@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>New or Edit User</title>
+<title>New or Edit Customer</title>
 </head>
 <body>
-	<form th:object="${newUser}" th:action="@{/update/{id}(id=${newUser.id})}" method=POST>
+	<form th:object="${newCustomer}" th:action="@{/update/{id}(id=${newCustomer.id})}" method=POST>
 		First Name: <input name="firstName" size="30" th:field="*{firstName}"><br />
 		Last Name: <input name="lastName" size="30" th:field="*{lastName}"><br />
 		Phone: <input name="phone" size="30" th:field="*{phone}"><br />
