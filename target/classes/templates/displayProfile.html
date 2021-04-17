@@ -9,9 +9,12 @@
 		<table>
 		<tr th:each="currentUser: ${users}">
 			<td th:text="${currentUser.id}" />
-			<td th:text="${currentUser.name}" />
-			<td th:text="${currentUser.description}" />
+			<td th:text="${currentUser.firstName}" />
+			<td th:text="${currentUser.lastName}" />
+			<td th:text="${currentUser.phone}" />
+			<td th:text="${currentUser.email}" />
 			<td th:text="${currentUser.address}" />
+			<td th:text="${currentUser.creditCard}" />
 
 			<td><a th:href="@{/edit/{id}(id=${currentUser.id})}">Edit</a></td>
 			<td><a th:href="@{/delete/{id}(id=${currentUser.id})}">Delete</a></td>

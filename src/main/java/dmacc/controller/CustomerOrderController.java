@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import dmacc.beans.Order;
-import dmacc.repository.OrderRepository;
+import dmacc.beans.CustomerOrder;
+import dmacc.repository.CustomerOrderRepository;
 
 /**
  * @author Jeremy Brannen - jrbrannen
@@ -17,10 +17,10 @@ import dmacc.repository.OrderRepository;
  * Apr 5, 2021
  */
 @Controller
-public class OrderController {
+public class CustomerOrderController {
 	
 	@Autowired
-	OrderRepository repo;
+	CustomerOrderRepository repo;
 	
 	// display an order
 	@GetMapping({"displayOrder"})
@@ -35,7 +35,7 @@ public class OrderController {
 	// adds a new order to database
 	@GetMapping("/addNewOrder")
 		public String addNewOrder(Model model) {
-			Order o = new Order();
+			CustomerOrder o = new CustomerOrder();
 			model.addAttribute("newOrder", o);
 			return "input";
 	}
@@ -43,14 +43,14 @@ public class OrderController {
 	// edits order pull order from database by id
 	@GetMapping("/editOrder/{id}")
 		public String editOrder(@PathVariable("id") long id, Model model) {
-		Order o = repo.findById(id).orElse(null);
+		CustomerOrder o = repo.findById(id).orElse(null);
 		model.addAttribute("newOrder", o);
 		return "input";
 	}
 	
 	// updates a current order
 	@PostMapping("/createOrder/{id}")
-		public String updateOrder(@ModelAttribute Order o, Model model) {
+		public String updateOrder(@ModelAttribute CustomerOrder o, Model model) {
 		repo.save(o);
 		return viewOrder(model);
 	}
@@ -58,7 +58,7 @@ public class OrderController {
 	// deletes current order id
 	@GetMapping("/deleteOrder/{id}")
 		public String deleteOrder(@PathVariable("id") long id, Model model) {
-		Order o = repo.findById(id).orElse(null);
+		CustomerOrder o = repo.findById(id).orElse(null);
 		repo.delete(o);
 		return viewOrder(model);
 	}
