@@ -14,12 +14,5 @@ public class RestaurantProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestaurantProjectApplication.class, args);
-	
-
-	ApplicationContext appContext = new AnnotationConfigApplicationContext(BeanConfiguration.class);
-			  
-			  Customer c = appContext.getBean("cust", Customer.class);
-			  System.out.println(c.toString());
-			  
-}
+	}
 }
