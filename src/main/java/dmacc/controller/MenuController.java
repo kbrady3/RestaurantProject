@@ -21,7 +21,7 @@ public class MenuController {
 			return viewMenu(model);
 		}
 		model.addAttribute("menu", repo.findAll());
-		return "results";
+		return "displayMenu";
 	}
 
 }
