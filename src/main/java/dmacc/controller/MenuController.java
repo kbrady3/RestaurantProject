@@ -20,7 +20,7 @@ public class MenuController {
 		if (repo.findAll().isEmpty()) {
 			return viewMenu(model);
 		}
-		model.addAttribute("menu", repo.findAll());
+		model.addAttribute("menuItems", repo.findAll());
 		return "displayMenu";
 	}
 

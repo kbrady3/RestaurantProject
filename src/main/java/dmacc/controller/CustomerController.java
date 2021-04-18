@@ -22,7 +22,7 @@ public class CustomerController {
 	CustomerRepository repo;
 
 	// will display a customers profile
-	@GetMapping({ "/", "displayProfile" })
+	@GetMapping({ "displayProfile" })
 	public String viewCustomer(Model model) {
 		if (repo.findAll().isEmpty()) {
 			return addNewCustomer(model);

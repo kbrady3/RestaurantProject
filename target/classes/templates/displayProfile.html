@@ -7,7 +7,7 @@
 <body>
 	<form>
 		<table>
-		<tr th:each="currentCustomer: ${customers}">
+		<tr th:each="currentCustomer: ${customer}">
 			<td th:text="${currentCustomer.id}" />
 			<td th:text="${currentCustomer.firstName}" />
 			<td th:text="${currentCustomer.lastName}" />
