@@ -2,23 +2,26 @@
 package dmacc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import dmacc.repository.MenuRepoitory;
+import dmacc.repository.MenuItemsRepoitory;
+
 
 /**
  * @author Jeremy Brannen - jrbrannen CIS175 Apr 5, 2021
  */
-public class MenuController {
+@Controller
+public class MenuItemsController {
 
 	@Autowired
-	MenuRepoitory repo;
+	MenuItemsRepoitory repo;
 
 	// view current menus
 	@GetMapping({ "displayMenu" })
 	public String viewMenu(Model model) {
 		if (repo.findAll().isEmpty()) {
-			return viewMenu(model);
+			return "index";
 		}
 		model.addAttribute("menuItems", repo.findAll());
 		return "displayMenu";
