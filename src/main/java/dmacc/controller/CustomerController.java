@@ -22,13 +22,13 @@ public class CustomerController {
 	CustomerRepository repo;
 
 	// will display a customers profile
-	@GetMapping({ "/", "displayProfile" })
+	@GetMapping({ "displayProfile" })
 	public String viewCustomer(Model model) {
 		if (repo.findAll().isEmpty()) {
 			return addNewCustomer(model);
 		}
 		model.addAttribute("customer", repo.findAll());
-		return "results";
+		return "displayProfile";
 	}
 
 	// will add a customer to the database
@@ -40,7 +40,7 @@ public class CustomerController {
 	}
 
 	// choose a customer by id to edit
-	@GetMapping("/editCustomer/{id}")
+	@GetMapping("/edit/{id}")
 	public String editCustomer(@PathVariable("id") long id, Model model) {
 		Customer c = repo.findById(id).orElse(null);
 		model.addAttribute("newCustomer", c);
@@ -48,14 +48,14 @@ public class CustomerController {
 	}
 
 	// updates customer information
-	@PostMapping("/updateCustomer/{id}")
+	@PostMapping("/update/{id}")
 	public String updateCustomer(@ModelAttribute Customer c, Model model) {
 		repo.save(c);
 		return viewCustomer(model);
 	}
 
 	// will delete a customer from the database by id
-	@GetMapping("/deleteCustomer/{id}")
+	@GetMapping("/delete/{id}")
 	public String deleteCustomer(@PathVariable("id") long id, Model model) {
 		Customer c = repo.findById(id).orElse(null);
 		repo.delete(c);

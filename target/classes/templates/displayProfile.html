@@ -7,21 +7,20 @@
 <body>
 	<form>
 		<table>
-		<tr th:each="currentUser: ${users}">
-			<td th:text="${currentUser.id}" />
-			<td th:text="${currentUser.firstName}" />
-			<td th:text="${currentUser.lastName}" />
-			<td th:text="${currentUser.phone}" />
-			<td th:text="${currentUser.email}" />
-			<td th:text="${currentUser.address}" />
-			<td th:text="${currentUser.creditCard}" />
+		<tr th:each="currentCustomer: ${customer}">
+			<td th:text="${currentCustomer.id}" />
+			<td th:text="${currentCustomer.firstName}" />
+			<td th:text="${currentCustomer.lastName}" />
+			<td th:text="${currentCustomer.phone}" />
+			<td th:text="${currentCustomer.email}" />
+			<td th:text="${currentCustomer.address}" />
+			<td th:text="${currentCustomer.creditCard}" />
 
-			<td><a th:href="@{/edit/{id}(id=${currentUser.id})}">Edit</a></td>
-			<td><a th:href="@{/delete/{id}(id=${currentUser.id})}">Delete</a></td>
+			<td><a th:href="@{/edit/{id}(id=${currentCustomer.id})}">Edit</a></td>
+			<td><a th:href="@{/delete/{id}(id=${currentCustomer.id})}">Delete</a></td>
 			</tr>
 		</table>
 	</form>
 	<br>
-	<a href="../addVendor">Add a new vendor</a>
 </body>
 </html>
