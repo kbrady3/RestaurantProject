@@ -32,7 +32,7 @@ public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private LocalDate date;
+	private LocalDate orderDate;
 	@ManyToOne
 	private Customer customer;
 	@OneToMany
