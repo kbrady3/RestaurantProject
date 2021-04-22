@@ -23,43 +23,43 @@ public class CustomerOrderController {
 	CustomerOrderRepository repo;
 	
 	// display an order
-	@GetMapping({"displayOrder"})
-		public String viewOrder(Model model) {
+	@GetMapping({"update/displayCustomerOrder"})
+	public String viewCustomerOrder(Model model) {
 		if(repo.findAll().isEmpty()) {
-			return addNewOrder(model);
+			return addNewCustomerOrder(model);
 		}
-		model.addAttribute("Order", repo.findAll());
-		return "results";
+		model.addAttribute("CustomerOrder", repo.findAll());
+		return "displayCustomerOrder";
 	}
 	
 	// adds a new order to database
-	@GetMapping("/addNewOrder")
-		public String addNewOrder(Model model) {
+	@GetMapping("/addNewCustomerOrder")
+	public String addNewCustomerOrder(Model model) {
 			CustomerOrder o = new CustomerOrder();
-			model.addAttribute("newOrder", o);
+			model.addAttribute("newCustomerOrder", o);
 			return "input";
 	}
 	
 	// edits order pull order from database by id
 	@GetMapping("/editOrder/{id}")
-		public String editOrder(@PathVariable("id") long id, Model model) {
+	public String editCustomerOrder(@PathVariable("id") long id, Model model) {
 		CustomerOrder o = repo.findById(id).orElse(null);
 		model.addAttribute("newOrder", o);
 		return "input";
 	}
 	
 	// updates a current order
-	@PostMapping("/createOrder/{id}")
-		public String updateOrder(@ModelAttribute CustomerOrder o, Model model) {
+	@PostMapping("/createCustomerOrder/{id}")
+	public String updateOrder(@ModelAttribute CustomerOrder o, Model model) {
 		repo.save(o);
-		return viewOrder(model);
+		return viewCustomerOrder(model);
 	}
 	
 	// deletes current order id
-	@GetMapping("/deleteOrder/{id}")
-		public String deleteOrder(@PathVariable("id") long id, Model model) {
+	@GetMapping("/deleteCustomerOrder/{id}")
+	public String deleteOrder(@PathVariable("id") long id, Model model) {
 		CustomerOrder o = repo.findById(id).orElse(null);
 		repo.delete(o);
-		return viewOrder(model);
+		return viewCustomerOrder(model);
 	}
 }
