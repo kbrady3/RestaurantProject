@@ -7,10 +7,10 @@
 <body>
 	<form>
 		<table>
-		<tr th:each="currentMenu: ${menus}">
+		<tr th:each="currentMenu: ${menuItems}">
 			<td th:text="${currentMenu.id}" />
-			<td th:text="${currentMenu.item}" />
-			<td th:text="${currentMenu.ingredients}" />
+			<td th:text="${currentMenu.itemName}" />
+			<!--  td th:text="${currentMenu.ingredients}" />-->
 			<td th:text="${currentMenu.price}" />
 			</tr>
 		</table>

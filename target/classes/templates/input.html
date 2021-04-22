@@ -3,17 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <title>New or Edit Customer</title>
+
+<script type = "text/javascript">
+        
+	function checkForm(form){
+		
+		var letters = /^[0-9]/;
+		
+		if(form.firstName.value === "") {
+		     alert("Error: first name must not be empty");
+		     form.firstName.focus();
+		     return false;
+		}
+		
+		if(form.lastName.value === "") {
+		    alert("Error: last name must not be empty");
+		    form.lastName.focus();
+		    return false;
+		}
+		
+		if(form.phone.value === ""){
+			alert("Error: Please enter a phone number");
+			form.phone.focus();
+			return false;
+		}
+		
+		if(!form.phone.value.match(letters)){
+			alert("Error : phone number must be numbers");
+			form.phone.focus();
+			return false;
+		}
+		
+		if (form.email.value === "") {
+			alert("Error: email must not be empty");
+		    form.email.focus();
+		    return false;
+		}
+		
+		if (form.address.value === "") {
+			alert("Error: address must not be empty");
+		    form.address.focus();
+		    return false;
+		}
+		
+		if (form.creditCard.value === "" || !form.creditCard.value.match(letters)) {
+			alert("Error: credit card is invalid");
+		    form.address.focus();
+		    return false;
+		}
+		
+		return true;
+		
+	}	
+        
+</script>
+      
 </head>
 <body>
-	<form th:object="${newCustomer}" th:action="@{/update/{id}(id=${newCustomer.id})}" method=POST>
+	<form th:object="${newCustomer}"
+	 th:action="@{/update/{id}(id=${newCustomer.id})}" method="post" onsubmit="return checkForm(this)">
 		First Name: <input name="firstName" size="30" th:field="*{firstName}"><br />
 		Last Name: <input name="lastName" size="30" th:field="*{lastName}"><br />
 		Phone: <input name="phone" size="30" th:field="*{phone}"><br />
-		Email: <input name="email" size="30" th:field="*{email}"><br />
+		Email: <input type="email" name="email" size="30" th:field="*{email}"><br />
 		Address: <input name="address" size="30" th:field="*{address}"><br />
 		Credit Card Number: <input name="creditCard" size="30" th:field="*{creditCard}"><br />
 		
-		<input name="Submit" type="submit" value="Submit" />
+		<input name="submit" type="submit" value="submit" />
 	</form>
 	
 	<a href="../displayProfile">View your profile</a> <!-- Click to view all user info -->
