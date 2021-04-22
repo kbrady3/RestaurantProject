@@ -34,11 +34,10 @@
 <br/>
 
 <div class="container">
-	<form th:object="${newCustomerOrder}"
-	 th:action="@{/addCustomerOrder/{id}(id=${newCustomerOrder.id})}" method="post">
-		Date: <input name="firstName" size="30" th:field="*{id}"><br />
-		Customer: <input name="lastName" size="30" th:field="*{date}"><br />
-		Menu Item: <input name="phone" size="30" th:field="*{menuItem}"><br />
+	<form th:object="${newCustomerOrder}" th:action="@{/addCustomerOrder/{id}(id=${newCustomerOrder.id})}" method="post">
+		Date: <input name="orderDate" size="30" th:field="*{orderDate}"><br/>
+		Customer: <input name="customer" size="30" th:field="*{customer}"><br />
+		Menu Item: <input name="menuItem" size="30" th:field="*{menuItem}"><br />
 		
 		<input name="submit" type="submit" value="submit" />
 	</form>
