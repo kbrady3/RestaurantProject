@@ -23,7 +23,7 @@ public class CustomerOrderController {
 	CustomerOrderRepository repo;
 	
 	// display an order
-	@GetMapping({"displayCustomerOrder"})
+	@GetMapping({"update/displayCustomerOrder"})
 	public String viewCustomerOrder(Model model) {
 		if(repo.findAll().isEmpty()) {
 			return addNewCustomerOrder(model);
