@@ -26,18 +26,18 @@ public class CustomerOrderController {
 	@GetMapping({"update/displayCustomerOrder"})
 	public String viewCustomerOrder(Model model) {
 		if(repo.findAll().isEmpty()) {
-			return addNewCustomerOrder(model);
+			return addCustomerOrder(model);
 		}
 		model.addAttribute("CustomerOrder", repo.findAll());
 		return "displayCustomerOrder";
 	}
 	
 	// adds a new order to database
-	@GetMapping("/addNewCustomerOrder")
-	public String addNewCustomerOrder(Model model) {
+	@GetMapping("/addCustomerOrder")
+	public String addCustomerOrder(Model model) {
 			CustomerOrder o = new CustomerOrder();
 			model.addAttribute("newCustomerOrder", o);
-			return "input";
+			return "displayCustomerOrder";
 	}
 	
 	// edits order pull order from database by id
