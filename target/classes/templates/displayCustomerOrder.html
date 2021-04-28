@@ -51,7 +51,12 @@
 	  	</div>
 	  	<div class="form-group">
 	    	<label for="menuItem">Menu Item</label>
-	    	<input name="menuItem" class="form-control" th:field="*{menuItem}">
+	    	<!-- <input name="menuItem" class="form-control" th:field="*{menuItem}"> -->
+	    	<select th:field="*{menuItem}" class="form-control">
+	    	<th:block th:each="i : ${itemsList}">
+	    	<option th:text="${i.itemName}" th:value="${i.id}" />
+	    	</th:block>
+	    	</select>
 	  	</div>
 
 		<br/>

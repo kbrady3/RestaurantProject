@@ -1,6 +1,8 @@
 
 package dmacc.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import dmacc.beans.CustomerOrder;
+import dmacc.beans.MenuItems;
 import dmacc.repository.CustomerOrderRepository;
+import dmacc.repository.MenuItemsRepoitory;
 
 /**
  * @author Jeremy Brannen - jrbrannen
@@ -21,6 +25,9 @@ public class CustomerOrderController {
 	
 	@Autowired
 	CustomerOrderRepository repo;
+	
+	@Autowired
+	MenuItemsRepoitory r;
 	
 	// display an order
 	@GetMapping({"update/displayCustomerOrder"})
@@ -36,7 +43,9 @@ public class CustomerOrderController {
 	@GetMapping("/addCustomerOrder")
 	public String addCustomerOrder(Model model) {
 			CustomerOrder o = new CustomerOrder();
+			List<MenuItems> itemsList = r.findAll();
 			model.addAttribute("newCustomerOrder", o);
+			model.addAttribute("itemsList", itemsList);
 			return "displayCustomerOrder";
 	}
 	
