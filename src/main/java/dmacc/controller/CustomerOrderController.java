@@ -32,7 +32,7 @@ public class CustomerOrderController {
 	MenuItemsRepoitory r;
 	
 	// display an order
-	@GetMapping({"/displayCustomerOrder"})
+	@GetMapping({"update/displayCustomerOrder"})
 	public String viewCustomerOrder(Model model) {
 		
 /**
