@@ -49,7 +49,7 @@ public class CustomerOrderController {
 	}
 	
 	// updates a current order
-	@PostMapping("/createCustomerOrder/{id}")
+	@PostMapping("/addCustomerOrder/{id}")
 	public String updateOrder(@ModelAttribute CustomerOrder o, Model model) {
 		repo.save(o);
 		return viewCustomerOrder(model);
