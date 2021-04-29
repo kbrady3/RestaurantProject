@@ -54,7 +54,7 @@ public class CustomerOrderController {
 			return "CustomerOrder";
 	}
 
-	@PostMapping("/addCustomerOrder")
+	@PostMapping("/update/addCustomerOrder")
 	public String addCustomerOrder(@ModelAttribute CustomerOrder o, Model model) {
 		repo.save(o);
 		return viewCustomerOrder(model);
