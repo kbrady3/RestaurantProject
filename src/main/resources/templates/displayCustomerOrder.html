@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>New or Edit Order</title>
+<title>View Order Details</title>
 <link th:href = "@{/stylesheet.css}" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="burger.png">
+<link rel="icon" type="image/x-icon" href="../burger.png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 </head>
 <body>
@@ -23,7 +23,7 @@
         <a class="nav-link text-dark" href="displayMenu">Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="addCustomerOrder">Place Order</a>
+        <a class="nav-link text-dark" href="displayCustomerOrder">Place Order</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark float-right" href="addNewCustomer">Register</a>
@@ -34,28 +34,19 @@
 <br/>
 
 <div class="container">
-	<form th:object="${newCustomerOrder}" th:action="@{/addCustomerOrder/{id}(id=${newCustomerOrder.id})}" method="post">
-		<div class="form-group">
-			<label for="orderDate">Date:</label>
-	    	<input name="orderDate" class="form-control" type="datetime-local" th:field="*{orderDate}">
-		</div>
-		<!--  
-		<div class="form-group">
-		    <label for="orderDate">Date</label>
-		    <input name="orderDate" class="form-control" th:field="*{orderDate}">
-	  	</div>
-	  	-->
-	  	<div class="form-group">
-	    	<label for="customer">Customer</label>
-	    	<input name="customer" class="form-control" th:field="*{customer}">
-	  	</div>
-	  	<div class="form-group">
-	    	<label for="menuItem">Menu Item</label>
-	    	<input name="menuItem" class="form-control" th:field="*{menuItem}">
-	  	</div>
-
-		<br/>
-		<button type="submit" class="btn btn-primary">Submit</button>
+	<form>
+		<table class="table">
+		<tr th:each="currentorder: ${orderDetails}">
+			<td th:text="${currentorder.id}" />
+			<td th:text="${currentorder.customer.firstName}" />
+			<td th:text="${currentorder.customer.lastName}" />
+			<td th:text="${currentorder.menuItem}" />
+<!--
+			<td><a th:href="@{/edit/{id}(id=${menuItem.id})}">Edit</a></td>
+			<td><a th:href="@{/delete/{id}(id=${menuItem.id})}">Delete</a></td>
+-->
+			</tr>
+		</table>
 	</form>
 </div>
 
