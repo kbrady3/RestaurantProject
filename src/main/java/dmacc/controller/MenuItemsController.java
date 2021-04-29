@@ -20,6 +20,9 @@ public class MenuItemsController {
 	// view current menus
 	@GetMapping({ "displayMenu" })
 	public String viewMenu(Model model) {
+		if (repo.findAll().isEmpty()) {
+			return "index";
+		}
 		model.addAttribute("menuItems", repo.findAll());
 		return "displayMenu";
 	}

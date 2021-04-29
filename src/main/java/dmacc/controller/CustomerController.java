@@ -38,13 +38,6 @@ public class CustomerController {
 		model.addAttribute("newCustomer", c);
 		return "input";
 	}
-	
-	@PostMapping("/addNewCustomer")
-	public String addNewCustomer(@ModelAttribute Customer c, Model model) {
-		repo.save(c);
-		return viewCustomer(model);
-		
-	}
 
 	// choose a customer by id to edit
 	@GetMapping("/edit/{id}")
