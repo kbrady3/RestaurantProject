@@ -27,8 +27,6 @@ public class CustomerOrderController {
 	
 	@Autowired
 	CustomerOrderRepository repo;
-	@Autowired
-	MenuItemsRepoitory menuRepo;
 	
 	@Autowired
 	MenuItemsRepoitory r;
@@ -53,7 +51,7 @@ public class CustomerOrderController {
 			List<MenuItems> itemsList = r.findAll();
 			model.addAttribute("newCustomerOrder", o);
 			model.addAttribute("itemsList", itemsList);
-			model.addAttribute("menuItems", menuRepo.findAll());
+			model.addAttribute("menuItems", r.findAll());
 			return "CustomerOrder";
 	}
 
