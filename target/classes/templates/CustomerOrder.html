@@ -36,41 +36,32 @@
 <div class="container">
 	<form th:object="${newCustomerOrder}" th:action="@{/updateOrder/{id}(id=${newCustomerOrder.id})}" method="post">
 		<div class="form-group">
-<!--  
-			<label for="orderDate">Date:</label>
-	    	<input name="orderDate" class="form-control" type="datetime-local" th:field="*{orderDate}">
-		</div>
- 
-		<div class="form-group">
-		    <label for="orderDate">Date</label>
-		    <input name="orderDate" class="form-control" th:field="*{orderDate}">
-	  	</div>
--->
+  
 	  	<div class="form-group">
-	    	<label for="customer">First Name: </label>
-	    	<input name="customer" class="form-control" th:field="*{customer.firstName}">
+	    	<label for="customer">Account number: </label>
+	    	<input name="customer" class="form-control" th:field="*{customer.id}">
 	  	</div>
 	  	
-	  	<div class="form-group">
-	    	<label for="customer">Last Name: </label>
-	    	<input name="customer" class="form-control" th:field="*{customer.lastName}">
-	  	</div>
-	  	
-	  	<div class="form-group">
-	    	<label for="menuItem">Menu Item: </label>
-	    	<!-- <input name="menuItem" class="form-control" th:field="*{menuItem}"> -->
-	    	<select th:field="*{menuItem}" class="form-control">
-	    	<th:block th:each="i : ${itemsList}">
-	    	<option th:text="${i.itemName}" th:value="${i.id}" />
-	    	</th:block>
-	    	</select>
-	  	</div>
-
 		<br/>
+		
+		
+		<div class="container">
+		<table class="table">
+			<tbody>
+				<tr th:each="currentMenu: ${menuItems}">
+				    <td th:text="${currentMenu.id}" />
+					<td th:text="${currentMenu.itemName}" />
+					<td th:text="${currentMenu.price}" />
+					<td> <textarea name="Quantity" id="quantity" style="resize: none; width: 100%;" >0</textarea></td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+		
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
-
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

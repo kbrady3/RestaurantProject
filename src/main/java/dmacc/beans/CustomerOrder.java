@@ -1,6 +1,7 @@
 package dmacc.beans;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -34,11 +35,8 @@ public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private LocalDate orderDate;
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	private Customer customer;
-	@OneToMany //(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<MenuItems> menuItem;
-	@ManyToOne
-	private PaymentInfo payment;
+	 @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	    private List<MenuItems> items = new ArrayList<MenuItems>();
 }

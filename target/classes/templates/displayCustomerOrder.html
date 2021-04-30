@@ -23,7 +23,7 @@
         <a class="nav-link text-dark" href="displayMenu">Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="displayCustomerOrder">Place Order</a>
+        <a class="nav-link text-dark" href="addCustomerOrder">Place Order</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark float-right" href="addNewCustomer">Register</a>
@@ -39,7 +39,6 @@
 		<tr th:each="currentorder: ${orderDetails}">
 			<td th:text="${currentorder.id}" />
 			<td th:text="${currentorder.customer}" />
-			<td th:text="${currentorder.menuItem}" />
 <!--
 			<td><a th:href="@{/edit/{id}(id=${menuItem.id})}">Edit</a></td>
 			<td><a th:href="@{/delete/{id}(id=${menuItem.id})}">Delete</a></td>

@@ -48,9 +48,8 @@ public class CustomerOrderController {
 	@GetMapping("/addCustomerOrder")
 	public String addCustomerOrder(Model model) {
 			CustomerOrder o = new CustomerOrder();
-			List<MenuItems> itemsList = r.findAll();
 			model.addAttribute("newCustomerOrder", o);
-			model.addAttribute("itemsList", itemsList);
+			model.addAttribute("menuItems", r.findAll());
 			return "CustomerOrder";
 	}
 
