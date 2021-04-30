@@ -37,8 +37,4 @@ public class CustomerOrder {
 	private LocalDate orderDate;
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Customer customer;
-	@OneToMany //(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<MenuItems> menuItem;
-	@ManyToOne
-	private PaymentInfo payment;
 }
