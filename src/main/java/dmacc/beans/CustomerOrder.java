@@ -34,7 +34,6 @@ public class CustomerOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private LocalDate orderDate;
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Customer customer;
 }

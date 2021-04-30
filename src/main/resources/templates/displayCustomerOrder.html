@@ -39,7 +39,6 @@
 		<tr th:each="currentorder: ${orderDetails}">
 			<td th:text="${currentorder.id}" />
 			<td th:text="${currentorder.customer}" />
-			<td th:text="${currentorder.menuItem}" />
 <!--
 			<td><a th:href="@{/edit/{id}(id=${menuItem.id})}">Edit</a></td>
 			<td><a th:href="@{/delete/{id}(id=${menuItem.id})}">Delete</a></td>

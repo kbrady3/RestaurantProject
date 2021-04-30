@@ -37,16 +37,13 @@
 	<form th:object="${newCustomerOrder}" th:action="@{/updateOrder/{id}(id=${newCustomerOrder.id})}" method="post">
 		<div class="form-group">
   
-			<label for="orderDate">Date:</label>
-	    	<input name="orderDate" class="form-control" type="datetime-local" th:field="*{orderDate}">
-		</div>
- 
 	  	<div class="form-group">
 	    	<label for="customer">Account number: </label>
 	    	<input name="customer" class="form-control" th:field="*{customer.id}">
 	  	</div>
 	  	
 		<br/>
+		
 		
 		<div class="container">
 		<table class="table">
