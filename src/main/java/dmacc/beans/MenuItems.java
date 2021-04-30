@@ -1,9 +1,13 @@
 package dmacc.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,4 +28,6 @@ public class MenuItems {
 	private long id;
 	private String itemName;
 	private double price;
+	@ManyToMany(mappedBy = "items")
+    private List<CustomerOrder> order = new ArrayList<CustomerOrder>();
 }

@@ -1,6 +1,6 @@
 /**
  * 
- */
+ 
 package dmacc.beans;
 
 import javax.persistence.Column;
@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
  * @author Jeremy Brannen - jrbrannen
  *CIS175
  * Apr 29, 2021
- */
+ 
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -36,3 +36,4 @@ public class OrderItems {
 	private long id;
 
 }
+*/
