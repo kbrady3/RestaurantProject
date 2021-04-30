@@ -35,10 +35,9 @@
 
 <div class="container">
 	<form th:object="${newCustomerOrder}" th:action="@{/updateOrder/{id}(id=${newCustomerOrder.id})}" method="post">
-		<div class="form-group">
   
 	  	<div class="form-group">
-	    	<label for="customer">Account number: </label>
+	    	<label for="customer">Customer ID: </label>
 	    	<input name="customer" class="form-control" th:field="*{customer.id}">
 	  	</div>
 	  	
@@ -47,6 +46,14 @@
 		
 		<div class="container">
 		<table class="table">
+			<thead>
+				<tr>
+					<td>Item ID</td>
+					<td>Item Name</td>
+					<td>Price</td>
+					<td>How many items do you want to order?</td>
+				</tr>
+			</thead>
 			<tbody>
 				<tr th:each="currentMenu: ${menuItems}">
 				    <td th:text="${currentMenu.id}" />
