@@ -61,7 +61,7 @@
 	    	<!-- <input name="menuItem" class="form-control" th:field="*{menuItem}"> -->
 	    	<select th:field="*{menuItem}" class="form-control">
 	    	<th:block th:each="i : ${itemsList}">
-	    	<option th:text="${i.itemName}" th:value="${i.itemName}" />
+	    	<option th:text="${i.itemName}" th:value="${i.id}" />
 	    	</th:block>
 	    	</select>
 	  	</div>
